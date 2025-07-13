@@ -1,0 +1,28 @@
+🤖 YOUR BOT INVITE LINK
+========================
+
+Bot Name: AutoBot
+Bot ID: 1393992428981325946
+
+INVITE LINK:
+https://discord.com/api/oauth2/authorize?client_id=1393992428981325946&permissions=268446720&scope=bot
+
+PERMISSIONS INCLUDED:
+✅ Send Messages
+✅ Manage Messages  
+✅ Manage Channels
+✅ Manage Roles
+✅ Manage Webhooks
+✅ Read Message History
+
+HOW TO USE:
+1. Click the invite link above
+2. Select your server
+3. Click "Authorize" 
+4. In your server, type: !setup
+5. Watch your server get automatically configured!
+
+COMMANDS:
+- !setup - Auto-setup your server (Admin only)
+- !info - Show bot information
+- !help - Show all commands

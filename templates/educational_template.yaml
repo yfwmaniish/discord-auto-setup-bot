@@ -1,0 +1,173 @@
+categories:
+  - name: "📚 Course Information"
+    channels:
+      - name: "course-syllabus"
+        type: "text"
+        topic: "Course syllabus and schedule"
+      - name: "announcements"
+        type: "text"
+        topic: "Important course announcements"
+      - name: "assignments"
+        type: "text"
+        topic: "Assignment submissions and discussions"
+      - name: "resources"
+        type: "text"
+        topic: "Course resources and materials"
+  
+  - name: "💬 General"
+    channels:
+      - name: "general"
+        type: "text"
+        topic: "General course discussion"
+      - name: "introductions"
+        type: "text"
+        topic: "Introduce yourself to classmates"
+      - name: "study-groups"
+        type: "text"
+        topic: "Form study groups and partnerships"
+      - name: "bot-commands"
+        type: "text"
+        topic: "Use bot commands here"
+  
+  - name: "📖 Subjects"
+    channels:
+      - name: "mathematics"
+        type: "text"
+        topic: "Mathematics discussions and help"
+      - name: "science"
+        type: "text"
+        topic: "Science topics and experiments"
+      - name: "literature"
+        type: "text"
+        topic: "Literature analysis and discussions"
+      - name: "history"
+        type: "text"
+        topic: "Historical topics and research"
+      - name: "computer-science"
+        type: "text"
+        topic: "Programming and CS discussions"
+  
+  - name: "🤝 Help & Support"
+    channels:
+      - name: "homework-help"
+        type: "text"
+        topic: "Get help with homework and assignments"
+      - name: "tutoring"
+        type: "text"
+        topic: "Peer tutoring and study sessions"
+      - name: "office-hours"
+        type: "text"
+        topic: "Virtual office hours with instructors"
+      - name: "technical-support"
+        type: "text"
+        topic: "Technical issues and platform help"
+  
+  - name: "🔊 Study Sessions"
+    channels:
+      - name: "🔊 General Study"
+        type: "voice"
+      - name: "📚 Silent Study"
+        type: "voice"
+      - name: "👥 Group Study 1"
+        type: "voice"
+      - name: "👥 Group Study 2"
+        type: "voice"
+      - name: "📞 Office Hours"
+        type: "voice"
+      - name: "🎤 Presentations"
+        type: "voice"
+  
+  - name: "🎓 Staff"
+    channels:
+      - name: "staff-chat"
+        type: "text"
+        topic: "Staff and instructor discussions"
+      - name: "grading"
+        type: "text"
+        topic: "Grading discussions and coordination"
+      - name: "setup-log"
+        type: "text"
+        topic: "Bot setup logs"
+      - name: "📞 Staff Voice"
+        type: "voice"
+
+roles:
+  - name: "👨‍🏫 Professor"
+    color: 0x8b0000  # Dark Red
+    permissions:
+      - "administrator"
+    hoist: true
+  
+  - name: "🎓 Teaching Assistant"
+    color: 0xff4500  # Orange Red
+    permissions:
+      - "manage_messages"
+      - "manage_channels"
+      - "kick_members"
+      - "mute_members"
+      - "deafen_members"
+      - "move_members"
+    hoist: true
+  
+  - name: "📚 Tutor"
+    color: 0xffd700  # Gold
+    permissions:
+      - "manage_messages"
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+      - "use_voice_activation"
+      - "priority_speaker"
+    hoist: true
+  
+  - name: "🎯 Graduate Student"
+    color: 0x4169e1  # Royal Blue
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+      - "use_voice_activation"
+      - "embed_links"
+      - "attach_files"
+    hoist: true
+  
+  - name: "📖 Student"
+    color: 0x32cd32  # Lime Green
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+      - "use_voice_activation"
+    hoist: false
+  
+  - name: "👁️ Auditor"
+    color: 0x9370db  # Medium Purple
+    permissions:
+      - "read_message_history"
+      - "connect"
+    hoist: false
+  
+  - name: "🔇 Restricted"
+    color: 0x808080  # Gray
+    permissions: []
+    hoist: false
+
+utility_bots:
+  - name: "Carl-bot"
+    description: "Advanced moderation and utility bot"
+    invite_url: "https://carl-bot.com/invite"
+  
+  - name: "Reminder Bot"
+    description: "Set study reminders and deadlines"
+    invite_url: "https://reminderbot.xyz/invite"
+  
+  - name: "StudyBot"
+    description: "Study tools and flashcards"
+    invite_url: "https://studybot.org/invite"
+  
+  - name: "Pomodoro Bot"
+    description: "Study timer and productivity tracker"
+    invite_url: "https://pomodorobot.com/invite"

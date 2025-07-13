@@ -1,0 +1,58 @@
+🤖 DISCORD BOT TOKEN CREATION GUIDE
+=====================================
+
+Since you're already logged in to Discord Developer Portal, follow these EXACT steps:
+
+📍 STEP 1: CREATE APPLICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👀 LOOK FOR: Big blue button that says "New Application"
+✅ CLICK: "New Application"
+✅ TYPE: "Auto Setup Bot" (or any name you want)
+✅ CLICK: "Create"
+
+📍 STEP 2: GO TO BOT SECTION  
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👀 LOOK FOR: Left sidebar menu
+✅ CLICK: "Bot" (in the left menu)
+✅ CLICK: "Add Bot" button
+✅ CLICK: "Yes, do it!" when asked
+
+📍 STEP 3: ENABLE INTENTS (IMPORTANT!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👀 LOOK FOR: "Privileged Gateway Intents" section
+✅ TURN ON: "Message Content Intent" (toggle switch)
+✅ TURN ON: "Server Members Intent" (toggle switch)
+
+📍 STEP 4: GET YOUR TOKEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👀 LOOK FOR: "Token" section
+✅ CLICK: "Copy" button
+✅ PASTE: The token here in our chat
+
+📍 STEP 5: GET INVITE LINK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ CLICK: "OAuth2" (in left menu)
+✅ CLICK: "URL Generator" 
+✅ CHECK: "bot" under Scopes
+✅ CHECK: These permissions:
+   - Send Messages
+   - Manage Messages
+   - Manage Channels
+   - Manage Roles
+   - Manage Webhooks
+   - Read Message History
+✅ COPY: The generated URL at the bottom
+
+🎯 WHAT TO DO NEXT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Just paste your bot token here
+2. I'll automatically configure everything
+3. We'll test your bot
+4. You'll have a working Discord bot!
+
+💡 TROUBLESHOOTING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- If you don't see "New Application", refresh the page
+- If you get confused, tell me what you see on screen
+- Token starts with "MTA" or "MTI" followed by lots of characters
+- Keep your token SECRET - don't share it publicly!

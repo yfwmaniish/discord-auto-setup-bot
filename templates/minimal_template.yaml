@@ -1,0 +1,34 @@
+categories:
+  - name: "💬 General"
+    channels:
+      - name: "general"
+        type: "text"
+        topic: "General chat for everyone"
+      - name: "bot-commands"
+        type: "text"
+        topic: "Use bot commands here"
+  
+  - name: "🔊 Voice"
+    channels:
+      - name: "🔊 General"
+        type: "voice"
+
+roles:
+  - name: "Member"
+    color: 0x0000ff  # Blue
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+    hoist: false
+  
+  - name: "Muted"
+    color: 0x808080  # Gray
+    permissions: []
+    hoist: false
+
+utility_bots:
+  - name: "MEE6"
+    description: "Simple leveling bot"
+    invite_url: "https://mee6.xyz/add"

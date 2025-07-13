@@ -1,0 +1,181 @@
+!DOCTYPE html
+html lang="en"
+head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    titleDiscord Auto Setup Bot - Analytics/title
+    style
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-button {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-button.active {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .chart-container h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+    /style
+/head
+body
+    div class="container"
+        div class="header"
+            h1📈 Bot Analytics/h1
+        /div
+
+        div class="nav-buttons"
+            a href="/" class="nav-button"📊 Dashboard/a
+            a href="/templates" class="nav-button"🎨 Templates/a
+            a href="/analytics" class="nav-button active"📈 Analytics/a
+        /div
+
+        div class="chart-container"
+            h3Server Activity Over Time/h3
+            canvas id="activityChart" width="400" height="200"/canvas
+        /div
+
+        div class="chart-container"
+            h3Template Usage Over Time/h3
+            canvas id="usageChart" width="400" height="200"/canvas
+        /div
+    /div
+
+    script src="https://cdn.jsdelivr.net/npm/chart.js"/script
+    script
+        // Chart setup
+        const activityCtx = document.getElementById('activityChart').getContext('2d');
+        const usageCtx = document.getElementById('usageChart').getContext('2d');
+
+        let activityChart = new Chart(activityCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Active Servers',
+                    data: [12, 19, 3, 17, 6],
+                    borderColor: '#FFD700',
+                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    }
+                }
+            }
+        });
+
+        let usageChart = new Chart(usageCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Default', 'Gaming', 'Professional', 'Educational', 'Minimal'],
+                datasets: [{
+                    label: 'Usage',
+                    data: [5, 9, 3, 5, 2],
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#4BC0C0',
+                        '#9966FF'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    }
+                }
+            }
+        });
+
+    /script
+/body
+/html

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Auto Setup Bot - Templates</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-button {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-button.active {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .template {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .template h2 {
+            margin-bottom: 10px;
+        }
+
+        .template p {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Template Management</h1>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/" class="nav-button">📊 Dashboard</a>
+            <a href="/templates" class="nav-button active">🎨 Templates</a>
+            <a href="/analytics" class="nav-button">📈 Analytics</a>
+        </div>
+
+        <div>
+            {% for name, template in templates.items() %}
+            <div class="template">
+                <h2>{{ name.title() }}</h2>
+                <p><strong>Categories & Channels:</strong></p>
+                <ul>
+                    {% for category in template.categories %}
+                    <li>{{ category.name }}
+                        <ul>
+                            {% for channel in category.channels %}
+                            <li>{{ channel.name }} ({{ channel.type }})</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <p><strong>Roles:</strong></p>
+                <ul>
+                    {% for role in template.roles %}
+                    <li>{{ role.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

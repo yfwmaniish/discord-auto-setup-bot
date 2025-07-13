@@ -1,0 +1,167 @@
+categories:
+  - name: "📋 Company Info"
+    channels:
+      - name: "company-news"
+        type: "text"
+        topic: "Company announcements and updates"
+      - name: "policies"
+        type: "text"
+        topic: "Company policies and guidelines"
+      - name: "resources"
+        type: "text"
+        topic: "Important resources and links"
+  
+  - name: "💼 General"
+    channels:
+      - name: "general"
+        type: "text"
+        topic: "General workplace discussion"
+      - name: "introductions"
+        type: "text"
+        topic: "New team member introductions"
+      - name: "random"
+        type: "text"
+        topic: "Casual conversation and fun"
+      - name: "bot-commands"
+        type: "text"
+        topic: "Use bot commands here"
+  
+  - name: "🚀 Projects"
+    channels:
+      - name: "project-alpha"
+        type: "text"
+        topic: "Project Alpha discussions"
+      - name: "project-beta"
+        type: "text"
+        topic: "Project Beta discussions"
+      - name: "development"
+        type: "text"
+        topic: "Development discussions"
+      - name: "qa-testing"
+        type: "text"
+        topic: "Quality assurance and testing"
+  
+  - name: "📊 Departments"
+    channels:
+      - name: "marketing"
+        type: "text"
+        topic: "Marketing team discussions"
+      - name: "sales"
+        type: "text"
+        topic: "Sales team discussions"
+      - name: "support"
+        type: "text"
+        topic: "Customer support discussions"
+      - name: "hr"
+        type: "text"
+        topic: "Human resources discussions"
+  
+  - name: "🔊 Voice Meetings"
+    channels:
+      - name: "🔊 General Meeting"
+        type: "voice"
+      - name: "📞 Team Meeting 1"
+        type: "voice"
+      - name: "📞 Team Meeting 2"
+        type: "voice"
+      - name: "💼 Executive Meeting"
+        type: "voice"
+      - name: "🎯 Daily Standup"
+        type: "voice"
+  
+  - name: "🛠️ Management"
+    channels:
+      - name: "management-chat"
+        type: "text"
+        topic: "Management team discussions"
+      - name: "audit-logs"
+        type: "text"
+        topic: "Server audit logs"
+      - name: "setup-log"
+        type: "text"
+        topic: "Bot setup logs"
+      - name: "📞 Management Voice"
+        type: "voice"
+
+roles:
+  - name: "👑 CEO"
+    color: 0x8b0000  # Dark Red
+    permissions:
+      - "administrator"
+    hoist: true
+  
+  - name: "💼 Executive"
+    color: 0xff4500  # Orange Red
+    permissions:
+      - "manage_guild"
+      - "manage_channels"
+      - "manage_roles"
+      - "manage_messages"
+      - "kick_members"
+      - "ban_members"
+      - "manage_webhooks"
+    hoist: true
+  
+  - name: "📊 Manager"
+    color: 0xffd700  # Gold
+    permissions:
+      - "manage_messages"
+      - "manage_channels"
+      - "kick_members"
+      - "mute_members"
+      - "deafen_members"
+      - "move_members"
+    hoist: true
+  
+  - name: "🎯 Team Lead"
+    color: 0x4169e1  # Royal Blue
+    permissions:
+      - "manage_messages"
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+      - "use_voice_activation"
+      - "priority_speaker"
+    hoist: true
+  
+  - name: "👨‍💼 Employee"
+    color: 0x32cd32  # Lime Green
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+      - "use_voice_activation"
+    hoist: false
+  
+  - name: "🤝 Contractor"
+    color: 0x9370db  # Medium Purple
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+    hoist: false
+  
+  - name: "🔇 Restricted"
+    color: 0x808080  # Gray
+    permissions: []
+    hoist: false
+
+utility_bots:
+  - name: "Carl-bot"
+    description: "Advanced moderation and utility bot"
+    invite_url: "https://carl-bot.com/invite"
+  
+  - name: "Dyno"
+    description: "Professional moderation bot"
+    invite_url: "https://dyno.gg/bot"
+  
+  - name: "Statbot"
+    description: "Server statistics and analytics"
+    invite_url: "https://statbot.net/invite"
+  
+  - name: "Reminder Bot"
+    description: "Set reminders and manage tasks"
+    invite_url: "https://reminderbot.xyz/invite"

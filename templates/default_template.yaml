@@ -1,0 +1,88 @@
+categories:
+  - name: "📋 Information"
+    channels:
+      - name: "rules"
+        type: "text"
+        topic: "Server rules and guidelines"
+      - name: "announcements"
+        type: "text"
+        topic: "Important server announcements"
+      - name: "welcome"
+        type: "text"
+        topic: "Welcome new members!"
+  
+  - name: "💬 General"
+    channels:
+      - name: "general"
+        type: "text"
+        topic: "General chat for everyone"
+      - name: "memes"
+        type: "text"
+        topic: "Share your memes here!"
+      - name: "bot-commands"
+        type: "text"
+        topic: "Use bot commands here"
+  
+  - name: "🔊 Voice Channels"
+    channels:
+      - name: "🔊 General"
+        type: "voice"
+      - name: "🎵 Music"
+        type: "voice"
+      - name: "🎮 Gaming"
+        type: "voice"
+  
+  - name: "👨‍💼 Staff"
+    channels:
+      - name: "staff-chat"
+        type: "text"
+        topic: "Staff discussion channel"
+      - name: "mod-logs"
+        type: "text"
+        topic: "Moderation logs"
+      - name: "setup-log"
+        type: "text"
+        topic: "Bot setup logs"
+
+roles:
+  - name: "Admin"
+    color: 0xff0000  # Red
+    permissions:
+      - "administrator"
+    hoist: true
+  
+  - name: "Moderator"
+    color: 0x00ff00  # Green
+    permissions:
+      - "manage_messages"
+      - "kick_members"
+      - "ban_members"
+      - "manage_channels"
+    hoist: true
+  
+  - name: "Member"
+    color: 0x0000ff  # Blue
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+    hoist: false
+  
+  - name: "Muted"
+    color: 0x808080  # Gray
+    permissions: []
+    hoist: false
+
+utility_bots:
+  - name: "Dyno"
+    description: "Moderation bot"
+    invite_url: "https://dyno.gg/bot"
+  
+  - name: "MEE6"
+    description: "Leveling and moderation bot"
+    invite_url: "https://mee6.xyz/add"
+  
+  - name: "Hydra"
+    description: "Music bot"
+    invite_url: "https://hydra.bot/invite"

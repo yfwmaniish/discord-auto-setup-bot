@@ -1,0 +1,143 @@
+categories:
+  - name: "📋 Server Info"
+    channels:
+      - name: "rules"
+        type: "text"
+        topic: "Server rules and guidelines"
+      - name: "announcements"
+        type: "text"
+        topic: "Important server announcements"
+      - name: "updates"
+        type: "text"
+        topic: "Game updates and patch notes"
+  
+  - name: "💬 General Chat"
+    channels:
+      - name: "general"
+        type: "text"
+        topic: "General discussion"
+      - name: "introductions"
+        type: "text"
+        topic: "Introduce yourself to the community"
+      - name: "memes"
+        type: "text"
+        topic: "Share your gaming memes"
+      - name: "bot-commands"
+        type: "text"
+        topic: "Use bot commands here"
+  
+  - name: "🎮 Gaming"
+    channels:
+      - name: "looking-for-group"
+        type: "text"
+        topic: "Find teammates and groups"
+      - name: "game-discussion"
+        type: "text"
+        topic: "Discuss your favorite games"
+      - name: "screenshots"
+        type: "text"
+        topic: "Share your gaming screenshots"
+      - name: "tournaments"
+        type: "text"
+        topic: "Tournament announcements and sign-ups"
+  
+  - name: "🔊 Voice Channels"
+    channels:
+      - name: "🔊 General Lobby"
+        type: "voice"
+      - name: "🎮 Gaming Room 1"
+        type: "voice"
+      - name: "🎮 Gaming Room 2"
+        type: "voice"
+      - name: "🎵 Music & Chill"
+        type: "voice"
+      - name: "📞 Private Room"
+        type: "voice"
+  
+  - name: "🛠️ Staff"
+    channels:
+      - name: "staff-chat"
+        type: "text"
+        topic: "Staff discussion channel"
+      - name: "mod-logs"
+        type: "text"
+        topic: "Moderation logs"
+      - name: "setup-log"
+        type: "text"
+        topic: "Bot setup logs"
+      - name: "📞 Staff Voice"
+        type: "voice"
+
+roles:
+  - name: "🔴 Owner"
+    color: 0xff0000  # Red
+    permissions:
+      - "administrator"
+    hoist: true
+  
+  - name: "🟠 Admin"
+    color: 0xff8800  # Orange
+    permissions:
+      - "manage_guild"
+      - "manage_channels"
+      - "manage_roles"
+      - "manage_messages"
+      - "kick_members"
+      - "ban_members"
+      - "manage_webhooks"
+    hoist: true
+  
+  - name: "🟡 Moderator"
+    color: 0xffff00  # Yellow
+    permissions:
+      - "manage_messages"
+      - "kick_members"
+      - "manage_channels"
+      - "mute_members"
+      - "deafen_members"
+      - "move_members"
+    hoist: true
+  
+  - name: "🔵 VIP"
+    color: 0x0088ff  # Blue
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+      - "use_voice_activation"
+      - "embed_links"
+      - "attach_files"
+    hoist: true
+  
+  - name: "🟢 Member"
+    color: 0x00ff00  # Green
+    permissions:
+      - "send_messages"
+      - "read_message_history"
+      - "connect"
+      - "speak"
+      - "use_voice_activation"
+    hoist: false
+  
+  - name: "🔇 Muted"
+    color: 0x808080  # Gray
+    permissions: []
+    hoist: false
+
+utility_bots:
+  - name: "MEE6"
+    description: "Leveling and moderation bot"
+    invite_url: "https://mee6.xyz/add"
+  
+  - name: "Dyno"
+    description: "Advanced moderation bot"
+    invite_url: "https://dyno.gg/bot"
+  
+  - name: "Hydra"
+    description: "Music bot for voice channels"
+    invite_url: "https://hydra.bot/invite"
+  
+  - name: "Pancake"
+    description: "Multi-purpose gaming bot"
+    invite_url: "https://pancakebot.org/invite"
