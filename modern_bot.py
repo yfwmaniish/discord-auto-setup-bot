@@ -242,6 +242,38 @@ class TemplateSelectView(View):
         self.ctx = ctx
         self.add_item(TemplateSelect())
 
+        # Add template reconfiguration button
+        self.add_item(Button(label="Reconfigure Template", style=discord.ButtonStyle.red, emoji="🔄", custom_id="reconfigure_template"))
+
+    @discord.ui.button(label="Apply Different Template", style=discord.ButtonStyle.red, emoji="🔄")
+    async def reconfigure_template(self, button: Button, interaction: discord.Interaction):
+        # Confirm reconfiguration
+        embed = discord.Embed(
+            title="⚠️ Reconfigure Server",
+            description="Are you sure you want to apply a different template? This will change the current configuration.",
+            color=0xffcc00
+        )
+        view = ConfirmTemplateChangeView()
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+
+class ConfirmTemplateChangeView(View):
+    def __init__(self):
+        super().__init__(timeout=30)
+
+    @discord.ui.button(label="Yes, Change Template", style=discord.ButtonStyle.green)
+    async def confirm_change(self, button: Button, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="🎨 Choose Your New Template",
+            description="Select a template to reconfigure your server:",
+            color=0x9932cc
+        )
+        view = TemplateSelectView(interaction)
+        await interaction.response.edit_message(embed=embed, view=view)
+
+    @discord.ui.button(label="Cancel", style=discord.ButtonStyle.grey)
+    async def cancel(self, button: Button, interaction: discord.Interaction):
+        await interaction.response.send_message("Reconfiguration cancelled.", ephemeral=True)
+
 class TemplateSelect(Select):
     def __init__(self):
         # Define template options
@@ -946,6 +978,97 @@ async def setup_verification(ctx: discord.ApplicationContext):
     
     await ctx.respond(f"✅ Verification system set up in {verification_channel.mention}!", ephemeral=True)
 
+@bot.slash_command(name="switch_template", description="Switch to a different server template")
+async def switch_template(
+    ctx: discord.ApplicationContext,
+    new_template: discord.Option(
+        str,
+        description="Choose a new template to apply",
+        choices=["default", "gaming", "professional", "educational", "minimal"],
+        required=True
+    )
+):
+    if not ctx.author.guild_permissions.administrator:
+        await ctx.respond("❌ You need Administrator permissions to switch templates.", ephemeral=True)
+        return
+    
+    # Check bot permissions
+    required_perms = ['manage_channels', 'manage_roles', 'manage_webhooks', 'send_messages']
+    missing_perms = []
+    
+    for perm in required_perms:
+        if not getattr(ctx.guild.me.guild_permissions, perm):
+            missing_perms.append(perm.replace('_', ' ').title())
+    
+    if missing_perms:
+        embed = discord.Embed(
+            title="❌ Missing Bot Permissions",
+            description=f"I need these permissions:\n\n• {chr(10).join(missing_perms)}",
+            color=0xff0000
+        )
+        await ctx.respond(embed=embed, ephemeral=True)
+        return
+    
+    # Confirmation embed
+    embed = discord.Embed(
+        title="⚠️ Switching Server Template",
+        description=f"Are you sure you want to switch to the **{new_template.title()}** template?\n\nThis will reconfigure your server structure.",
+        color=0xffcc00
+    )
+    
+    view = SwitchTemplateConfirmView(new_template)
+    await ctx.respond(embed=embed, view=view, ephemeral=True)
+
+class SwitchTemplateConfirmView(View):
+    def __init__(self, template_name):
+        super().__init__(timeout=60)
+        self.template_name = template_name
+
+    @discord.ui.button(label="Yes, Switch Template", style=discord.ButtonStyle.green, emoji="✅")
+    async def confirm_switch(self, button: Button, interaction: discord.Interaction):
+        await interaction.response.defer()
+        
+        embed = discord.Embed(
+            title="🔄 Switching Template...",
+            description=f"Applying **{self.template_name}** template\n\nThis may take a few moments...",
+            color=0xffff00
+        )
+        await interaction.followup.send(embed=embed)
+        
+        # Load new template and apply
+        template_data = await setup_handler.load_template(self.template_name)
+        success, result_message = await setup_handler.setup_server(interaction.guild, template_data)
+        
+        if success:
+            embed = discord.Embed(
+                title="✅ Template Switch Complete!",
+                description=f"Successfully switched to **{self.template_name.title()}** template!\n\n{result_message}",
+                color=0x00ff00
+            )
+            embed.add_field(
+                name="🎆 What's New:",
+                value=f"Your server now uses the **{self.template_name.title()}** configuration with updated channels, roles, and permissions.",
+                inline=False
+            )
+            view = PostSetupView()
+            await interaction.edit_original_response(embed=embed, view=view)
+        else:
+            embed = discord.Embed(
+                title="❌ Template Switch Failed",
+                description=f"Failed to switch to {self.template_name} template:\n\n{result_message}",
+                color=0xff0000
+            )
+            await interaction.edit_original_response(embed=embed)
+
+    @discord.ui.button(label="Cancel", style=discord.ButtonStyle.grey, emoji="❌")
+    async def cancel_switch(self, button: Button, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="🚫 Template Switch Cancelled",
+            description="Your server configuration remains unchanged.",
+            color=0x999999
+        )
+        await interaction.response.edit_message(embed=embed, view=None)
+
 @bot.slash_command(name="info", description="Show information about the bot")
 async def info(ctx: discord.ApplicationContext):
     embed = discord.Embed(
@@ -962,7 +1085,7 @@ async def info(ctx: discord.ApplicationContext):
     
     embed.add_field(
         name="🎭 Advanced Features:",
-        value="• `/roleconfig` - Configure custom roles\n• `/verify` - Verify your account\n• `/search_history` - Search chat history\n• `/translate` - Translate messages\n• `/setup_verification` - Setup verification system",
+        value="• `/roleconfig` - Configure custom roles\n• `/verify` - Verify your account\n• `/search_history` - Search chat history\n• `/translate` - Translate messages\n• `/setup_verification` - Setup verification system\n• `/switch_template` - Switch to a different template",
         inline=False
     )
     
